@@ -1,12 +1,11 @@
 import React from 'react'
-import Navbar from './component/Navbar'
-import Login from './pages/Login'
+import AppRoute from './route/AppRoute'
 
 const App = () => {
   return (
     <div >
-      <Login/>
-      <Navbar/>
+      
+      <AppRoute/>
     </div>
   )
 }
