@@ -5,6 +5,7 @@ import Navbar from '../component/navbar/Navbar';
 import Home from '../pages/home/Home';
 import Login from '../pages/login/UserLogin';
 import Signup from '../pages/register/UserRegister';
+import TodaysWeather from '../pages/todaysWeather/TodaysWeather';
 // import About from '../pages/about/About';
 
 // import AddVaccineAppointment from '../pages/AddVaccineAppointment';
@@ -31,6 +32,7 @@ const AppRoutes = () => {
       <Route path="/register" element={<Signup/>}></Route>
      <Route path='/' element={<Navbar/>}></Route>
      <Route path='/' element={<Home/>}></Route>
+     <Route path='/todaysWeather' element={<TodaysWeather/>}></Route>
        {/*
       <Route path='/about' element={<About/>}></Route>
       <Route path='/addPatient' element={<AddPatient/>}></Route>
