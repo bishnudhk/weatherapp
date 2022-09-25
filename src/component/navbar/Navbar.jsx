@@ -1,9 +1,11 @@
-import { Button } from "antd";
+
 import React from "react";
+import { Button } from "antd";
 import { NavLink, useNavigate,Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import "./navbar.css";
 import TimeAndLocation from "../timeLocation/TimeAndLocation";
+import TemperatureAndDetails from "../temperatureAndDetails/TemperatureAndDetails";
 
 const Navbar = () => {
 
@@ -23,13 +25,14 @@ const Navbar = () => {
         </div>
       <div className="navLink">
         {/* <NavLink to="/">Home</NavLink> */}
-        <NavLink to="/location" className="location">Search by location</NavLink>
-        <NavLink to="/todaysWeather" className="todaysWeather" >Show todays weather</NavLink>
-        <NavLink to="/ten days Weather"className="tenDaysWeather">Show ten days weather</NavLink>
-        <NavLink to="/humidity" className="humidity">Show Humidity</NavLink>
-        <NavLink to="/sunriseSunset"className="sunriseSunset">Show sunrise sunset</NavLink>
+        <NavLink to="/location" className="location">SearchByLocation</NavLink>
+        <NavLink to="/todaysWeather" className="todaysWeather" >ShowTodaysWeather</NavLink>
+        <NavLink to="/ten days Weather"className="tenDaysWeather">ShowTenDays weather</NavLink>
+        <NavLink to="/humidity" className="humidity">ShowHumidity</NavLink>
+        <NavLink to="/sunriseSunset"className="sunriseSunset">ShowSunriseSunset</NavLink>
           <SearchBar/>
           <TimeAndLocation/>
+          <TemperatureAndDetails/>
       </div>
       {/* <div className='logoutBtn'> */}
       <Button className="logoutBtn" onClick={handleLogout}>

@@ -1,11 +1,13 @@
 .navbar{
     background-color: blue;
     display: flex;
+    width: 100%;
     font-size: 20px;
     /* margin: 1rem; */
-    padding: 30px;
+    padding: 20px;
     color: aliceblue;
     width:auto;
+    gap: 20px;
     
 
 }
@@ -13,9 +15,26 @@
     font-size: 30px;
     
 }
+
+.location{
+    /* padding: 32px; */
+    margin-right: 10px;
+}
+.todaysWeather{
+margin: 10px;
+}
+.tenDaysWeather{
+  margin-right: 10px;
+}
+.humidity{
+margin-right: 10px;
+}
+.sunriseSunset{
+margin-right: 10px;
+}
 .navLink{
-gap:65px;
-margin-right: 545px;
+/* gap:25px; */
+margin-right: 45px;
 
 }
 .logoutBtn{

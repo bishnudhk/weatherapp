@@ -1,8 +1,17 @@
-import React from 'react'
+import React from 'react';
+import './timeLocation.css';
+
 
 function TimeAndLocation() {
   return (
-    <div>TimeAndLocation</div>
+    <div>
+      <div className='time'>
+         <p>Tuesday, 31 May 2022 | Local time: 12:46 PM</p>
+      </div>
+      <div className='location'>
+         <p className=''>Berlin,DE</p>
+      </div>
+    </div>
   )
 }
 

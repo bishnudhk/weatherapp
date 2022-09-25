@@ -1,0 +1,16 @@
+.tempDetails{
+    
+    justify-content: center;
+}
+
+.imageDetails{
+    display: flex;
+    justify-content: center;
+    margin: 32px;
+    
+    
+}
+.todaysTemp{
+    font-size: 35px;
+    padding: 32px;
+    }

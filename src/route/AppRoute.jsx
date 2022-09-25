@@ -1,10 +1,12 @@
-
+import React from 'react';
 import { useEffect } from 'react';
 import{Routes,Route,Navigate, useNavigate } from 'react-router-dom';
 import Navbar from '../component/navbar/Navbar';
 import Home from '../pages/home/Home';
+import Humidity from '../pages/humidity/Humidity';
 import Login from '../pages/login/UserLogin';
 import Signup from '../pages/register/UserRegister';
+import SunriseSet from '../pages/sunriseSet/SunriseSet';
 import TodaysWeather from '../pages/todaysWeather/TodaysWeather';
 // import About from '../pages/about/About';
 
@@ -33,6 +35,9 @@ const AppRoutes = () => {
      <Route path='/' element={<Navbar/>}></Route>
      <Route path='/' element={<Home/>}></Route>
      <Route path='/todaysWeather' element={<TodaysWeather/>}></Route>
+     <Route path='/humidity' element={<Humidity/>}></Route>
+     <Route path='/sunriseSunset' element={<SunriseSet/>}></Route>
+
        {/*
       <Route path='/about' element={<About/>}></Route>
       <Route path='/addPatient' element={<AddPatient/>}></Route>

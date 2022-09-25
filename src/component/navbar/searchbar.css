@@ -5,6 +5,9 @@
     margin-top: 32px;
     
 }
+.search{
+    outline: none;
+}
 .input{
     display: flex;
 }

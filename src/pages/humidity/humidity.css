@@ -1,0 +1,9 @@
+.mainHumidity{
+    padding: 32px;
+    background-color: aqua;
+    font-size: 32px;
+}
+.temperature{
+    text-align: center;
+  justify-content: center;
+}
