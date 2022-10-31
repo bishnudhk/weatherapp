@@ -1,87 +1,124 @@
-import React, { useState } from "react";
-import {Link,useNavigate} from'react-router-dom'
-import openNotification from "../../utils/Notification";
-// import { UserAuth } from "../context/AuthContext";
-const Signup = () => {
-    const [email,setEmail] = useState('')
-    const [password,setPassword] = useState('')
+import React from "react";
+import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import "./UserRegister.css";
 
-   
-    const navigate = useNavigate()
+const Register = () => {
+  const initialValues = { email: "", password: "" };
+  const [formValues, setFormValues] = useState(initialValues);
+  const [formErrors, setFormErrors] = useState({});
+  const [isSubmit, setIsSubmit] = useState(false);
 
-    // gonna be a async function 
-    const handleSubmit = async (values) =>{
-      // e.preventDefault();
-      console.log("success",values);
-      try{
-        // openNotification(res.data.message);
-        openNotification("Register success");
-        //   await signUp(email,password)
-          navigate('/login')
-        
-      }catch(error){
-          console.log(error)
+  const handleChanage = (e) => {
+    const { name, value } = e.target;
+    setFormValues({ ...formValues, [name]: value });
+    // console.log(formValues);
+  };
 
-      }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setFormErrors(validatae(formValues));
+    setIsSubmit(true);
+
+    navigation({ pathname: "/login" });
+  };
+
+  useEffect(() => {
+    console.log(formErrors);
+    if (Object.keys(formErrors).length === 0 && isSubmit) {
+      console.log(formValues);
     }
+  }, [formErrors]);
+
+  const validatae = (values) => {
+    const errors = {};
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+    if (!values.email) {
+      errors.email = "email is required!";
+    } else if (!regex.test(values.email)) {
+      errors.email = "This is not a valid email format!";
+    }
+    if (!values.password) {
+      errors.password = "password is requoired!";
+    } else if (values.password.length < 4) {
+      errors.password = "Password must be more than 4 character!";
+    } else if (values.password > 10) {
+      errors.password = "Password cannot exceed more than 10 character!";
+    }
+    return errors;
+  };
+  const navigation = useNavigate();
+  // const handleLogin = () => {
+  // localStorage.setItem("isLoggedIn", JSON.stringify(true));
+  // navigation({ pathname: "/" });
+  // };
+
   return (
     <>
-      <div className="text-white w-full h-screen">
-        
-        <div className="bg-balck/60 fixed top-0 left-0 w-full min-h-screen"></div>
+      <div className="register">
+        <h1 className="registerHeading">Sign Up</h1>
 
-        <div className="fixed w-full px-4 py-24 z-50">
-          <div className="max-w-[450px] h-[660px] mx-auto bg-black/75 text-white">
-            <div className="max-w-[320px] mx-auto py-16">
-              <h1 className="text-3xl font-bold">Sign Up</h1>
+        <form onSubmit={handleSubmit}>
+          <label name="username" className="name">
+            Name:
+          </label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="enter your name"
+            // ref={userRef}
+            autoComplete="off"
+            required
+            value={formValues.name}
+            onChange={handleChanage}
+          />
+          <p>{formErrors.email}</p>
+          <label name="username" className="username">
+            Email:
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="username@gmail.com"
+            autoComplete="off"
+            required
+            value={formValues.email}
+            onChange={handleChanage}
+          />
+          <p>{formErrors.email}</p>
 
-              <form onSubmit={handleSubmit}
-              className="w-full flex flex-col py-3">
-                <input
-                onChange={(e) => setEmail(e.target.value)}
-                  className="p-3 my-2 bg-gray-700 rounded"
-                  type="email"
-                  placeholder="Email"
-                  autoComplete=""
-                />
-                 <input 
-                onChange={(e) => setPassword (e.target.value)}
-                  className="p-3 my-2 bg-gray-700 rounded"
-                  type="name"
-                  placeholder="name"
-                  
-                />
-                <input 
-                onChange={(e) => setPassword (e.target.value)}
-                  className="p-3 my-2 bg-gray-700 rounded"
-                  type="password"
-                  placeholder="password"
-                  autoComplete="current-password"
-                />
-                <button className="bg-red-600 py-3 my-6 rounded font-bold">
-                  Sign Up
-                </button>
-                <div className="flex justify-between items-center text-sm text-white-600">
-                  <p>
-                    <input className="mr-2 " type="checkbox" /> Remember me
-                  </p>
-                  <p>Need Help?</p>
-                </div>
-                <p className="py-8">
-                  <span className="text-gray-600">
-                    Already subscribed {" "}
-                  </span>{" "}
-                  <Link to='/login'>
-                  Sign In
-                  </Link> 
-                 </p>
-              </form>
-            </div>
-          </div>
-        </div>
+          <label name="password" className="password">
+            Password:
+          </label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="enter a password"
+            required
+            value={formValues.password}
+            onChange={handleChanage}
+          />
+          <p>{formErrors.password}</p>
+          <button className="loginBtn" htmlType="submit">
+            Sign Up
+          </button>
+        </form>
+        <p className="para">
+          Need an Account?
+          <br />
+          <span className="line">
+            <Link to="/login" className="signIn">
+              {" "}
+              Sign In
+            </Link>
+          </span>
+        </p>
       </div>
     </>
   );
 };
 
-export default Signup;
+export default Register;

@@ -1,16 +1,11 @@
-.container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 32px;
-    
-}
 .search{
     outline: none;
 }
+
 .input{
     display: flex;
 }
+
 .search{
     border-radius: 5px;
     padding: 6px;
@@ -18,6 +13,7 @@
     text-transform: capitalize;
     color: black;
 }
+
 .icon{
     display: flex;
     align-items: center;
@@ -26,8 +22,8 @@
     cursor: pointer;
     transition: ease-out;
     margin-left: 22px;
-
 }
+
 .icon:hover{
     color: aliceblue;
 }
@@ -41,6 +37,8 @@
     color: aliceblue;
     margin-left:32px;
 }
+
 .celsius{
+
  
 }

@@ -1,42 +1,35 @@
 .navbar{
-    background-color: blue;
+    background-color: #6c6cff;
     display: flex;
     width: 100%;
     font-size: 20px;
-    /* margin: 1rem; */
-    padding: 20px;
-    color: aliceblue;
-    width:auto;
+    padding: 20px 90px;
     gap: 20px;
-    
-
+    justify-content: space-between;
+    align-items: center;
 }
+.navLinks{
+    display: flex;
+    gap: 20px;
+}
+
 .logo{
     font-size: 30px;
+}
+
+.navbar a {
+    color: aliceblue;
+    text-decoration: none;
     
-}
-
-.location{
-    /* padding: 32px; */
-    margin-right: 10px;
-}
-.todaysWeather{
-margin: 10px;
-}
-.tenDaysWeather{
-  margin-right: 10px;
-}
-.humidity{
-margin-right: 10px;
-}
-.sunriseSunset{
-margin-right: 10px;
-}
-.navLink{
-/* gap:25px; */
-margin-right: 45px;
 
 }
+
 .logoutBtn{
-    margin-right: 32px;
+    font-size: 20px;
+    background: transparent;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 5px;
+    border: 1px solid white;
+
 }

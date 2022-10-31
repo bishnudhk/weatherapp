@@ -1,85 +1,111 @@
-import React, { useState } from "react";
-import {Link,useNavigate} from 'react-router-dom'
-import openNotification from "../../utils/Notification";
-// import { UserAuth } from "../context/AuthContext";
+import React from "react";
+import { useState, useEffect } from "react";
+import { Link, useNavigate} from "react-router-dom";
+import './userLogin.css';
 
 const Login = () => {
+  const initialValues = { email: "", password: "" };
+  const [formValues, setFormValues] = useState(initialValues);
+  const [formErrors, setFormErrors] = useState({});
+  const [isSubmit, setIsSubmit] = useState(false);
 
-  const [email,setEmail] = useState('')
-  const [password,setPassword] = useState('')
-  const [error,setError] = useState('')
+  const handleChanage = (e) => {
+    const { name, value } = e.target;
+    setFormValues({ ...formValues, [name]: value });
+    // console.log(formValues);
+  };
 
-//   const {user,logIn} = UserAuth()
-  const navigate = useNavigate()
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setFormErrors(validatae(formValues));
+    setIsSubmit(true);
+    
+    navigation({ pathname: "/" });
+  };
 
-  // const reset(){
-
-  // }
-
-  // gonna be a async function 
-  const handleSubmit = async (values) =>{
-    console.log("success:", values);
-    // e.preventDefault();
-    try{
-    localStorage.setItem('isLoggedIn',JSON.stringify(true));
-      // openNotification("login successfull");
-      
-        // await logIn(email,password)
-        navigate('/')
-      
-    }catch(error){
-        openNotification("password or email doesnot match ");
-        setError(error.message);
-
+  useEffect(() => {
+    console.log(formErrors);
+    if (Object.keys(formErrors).length === 0 && isSubmit) {
+      console.log(formValues);
     }
-  }
+  }, [formErrors]);
 
+  const validatae = (values) => {
+    const errors = {};
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+    if (!values.email) {
+      errors.email = "email is required!";
+    } else if (!regex.test(values.email)) {
+      errors.email = "This is not a valid email format!";
+    }
+    if (!values.password) {
+      errors.password = "password is requoired!";
+    } else if (values.password.length < 4) {
+      errors.password = "Password must be more than 4 character!";
+    } else if (values.password > 10) {
+      errors.password = "Password cannot exceed more than 10 character!";
+    }
+    return errors;
+  };
+  const navigation = useNavigate();
+  // const handleLogin = () => {
+    // localStorage.setItem("isLoggedIn", JSON.stringify(true));
+    // navigation({ pathname: "/" });
+  // };
 
   return (
-    <div className="text-white w-ful h-full">
-      <div className="bg-black/60 fixed top-0 left-0 w-full min-h-screen "></div>
-      <div className="fixed w-full px-4 py-24 z-50">
-        <div className="max-w-[450px] h-[660px] mx-auto bg-black">
-          <div className="max-w-[320px] mx-auto py-16">
-            <h1 className="text-3xl font-bold">Sign In</h1>
-            {error ? <p className="p-3 bg-red-400">{error}</p> : null}
+  
+      <div className="login">
+        {/* <pre>{JSON.stringify(formValues, undefined, 2)}</pre> */}
+        <h1 className="loginHeading">Sign In</h1>
 
-            <form onSubmit={handleSubmit} id="myForm"
-            className="w-full flex flex-col py-3">
-              <input onChange={(e) => setEmail(e.target.value)}
-                className="p-3 my-2 bg-gray-700 rounded"
-                type="email"
-                placeholder="email"
-                autoComplete="email"
-              />
-              <input onChange={(e)=> setPassword(e.target.value)}
-                className="p-3 my-2 bg-gray-700 rounded"
-                type="password"
-                placeholder="Password"
-                autoComplete="current-password "
-              />
+        <form onSubmit={handleSubmit}>
+          <label className="username">Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            className="email"
+            placeholder="username@gmail.com"
+            // ref={userRef}
+            autoComplete="off"
+            required
+            value={formValues.email}
+            onChange={handleChanage}
+            // onChange={(e) => setUser(e.target.value)}
+            // value={user}
+          />
+          <p>{formErrors.email}</p>
 
-              <button className="bg-red-600 py-3 my-6 rounded font-bold">
-                Sign In
-              </button>
-              <div className="flex justify-between items-center text-sm text-gray-600">
-                <p className="mr-2">
-                  <input type="checkbox" />
-                  Remember me
-                </p>
-                <p>Need Help?</p>
-              </div>
-              <p className="py-8">
-                <span className="text-gray-600">New to weatherapp?</span>
-                <Link to="/register">Sign Up</Link>
-              </p>
+          <label className="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="enter a password"
+            required
+            value={formValues.password}
+            // onChange={(e) => setPwd(e.target.value)}
+            // value={pwd}
 
-              <p></p>
-            </form>
-          </div>
-        </div>
+            onChange={handleChanage}
+          />
+          <p>{formErrors.password}</p>
+          <button className="loginBtn" htmlType="submit" >
+            Sign In
+          </button>
+        </form>
+        <p className="para">
+          Need an Account?
+          <br />
+          <span className="line">
+            {/*put router link here*/}
+            {/* <a href="#">Sign Up</a> */}
+            <Link to="/register" className="signUp"> Sign up</Link>
+          </span>
+        </p>
       </div>
-    </div>
+    
   );
 };
 

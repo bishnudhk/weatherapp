@@ -1,9 +1,12 @@
 import React from "react";
 import Navbar from "../../component/navbar/Navbar";
+// import getFormattedWeatherData from "../../services/weatherServices";
 import myImg from "./images/young-man.png";
 import "./todaysWeather.css";
 
 function TodaysWeather() {
+  
+
   return (
     <>
       <Navbar />

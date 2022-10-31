@@ -9,7 +9,7 @@ function TimeAndLocation() {
          <p>Tuesday, 31 May 2022 | Local time: 12:46 PM</p>
       </div>
       <div className='location'>
-         <p className=''>Berlin,DE</p>
+         <p className=''>{`${name},${country} `}fdsaf</p>
       </div>
     </div>
   )

@@ -3,7 +3,7 @@ import './sunriseSet.css';
 import Navbar from '../../component/navbar/Navbar';
 import {GiSunrise,GiSunset} from 'react-icons/gi';
 import {BiUpArrowAlt} from 'react-icons/bi';
-// import {BsArrowDownShort} from 'react-icons/bs';
+import {BsArrowDownShort} from 'react-icons/bs';
 
 
 function SunriseSet() {
@@ -15,7 +15,7 @@ function SunriseSet() {
         <p className="font-light">
           Rise:{" "}
           <span className="font-medium ml-1">
-           <sunrise>    </sunrise>
+           06:45 AM
           </span>
         </p>
         <p className="font-light">|</p>
@@ -24,7 +24,7 @@ function SunriseSet() {
         <p className="font-light">
           Set:{" "}
           <span className="font-medium ml-1">
-            sunset
+           07:35 PM
           </span>
         </p>
         <p className="font-light">|</p>
@@ -35,8 +35,8 @@ function SunriseSet() {
           <span className="font-medium ml-1">332°</span>
         </p>
         <p className="font-light">|</p>
+        <BsArrowDownShort />
 
-        {/* <BsArrowDownShort /> */}
         <p className="font-light">
           Low:
           <span className="font-medium ml-1">12°</span>
