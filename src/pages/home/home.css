@@ -4,6 +4,20 @@
     
 }
 
+.searchBar{
+   width: 15%;
+    padding: 15px;
+    border: 2px solid rgb(19, 17, 17);
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: rgb(222, 215, 215);
+    margin: 42px 132px;
+    text-align: center;
+    font-size: 25px;
+    /* text-decoration: none; */
+    
+}
+
 .todayWeather > h3{
     margin-top: 40px;
     font-size: 30px;
@@ -46,6 +60,11 @@ font-size: 24px;
     display:grid ;
     grid-template-columns: repeat(3, 1fr);
     gap: 12px;
+    
+}
+.weatherStat{
+  background-color: rgb(50, 50, 194);
+  font-size: 20px;
 }
 
 .todaysWeathers h3{
@@ -64,7 +83,7 @@ font-size: 40px;
     
 }
 .todaysWeatherDetails {
-    background-color: aliceblue;
+    background-color: rgb(44, 17, 152);
     padding: 15px;
     border-radius: 8px;
 }

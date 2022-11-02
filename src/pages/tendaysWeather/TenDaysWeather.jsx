@@ -10,14 +10,13 @@ function TenDaysWeather() {
   const [weather, setWeather] = useState(null);
 
   const api =
-    "https://api.openweathermap.org/data/2.5/forecast/daily?lat=28&lon=84&cnt=10&appid=e69e3d614cdf38b6358080b7b44bb253";
+    "http://api.openweathermap.org/data/2.5/air_pollution?lat=50&lon=50&appid=e69e3d614cdf38b6358080b7b44bb253";
 
   useEffect(() => {
     const fetchWeather = async () => {
       await fetch(api)
         .then((res) => res.json())
         .then((data) => setWeather(data));
-
     };
 
     fetchWeather();
@@ -35,11 +34,11 @@ function TenDaysWeather() {
           <p className="timePara">04:30 PM</p>
           <div className="imageDetails">
             <img
-              src={myImg}
+              // src={myImg}
               alt=""
-              className="image"
-              width="200px"
-              height="200px"
+              // className="image"
+              // width="200px"
+              // height="200px"
             />
             <p className="todaysTemp">34°</p>
           </div>
@@ -49,11 +48,11 @@ function TenDaysWeather() {
           <p className="timePara">04:30 PM</p>
           <div className="imageDetails">
             <img
-              src={myImg}
+              // src={myImg}
               alt=""
               className="image"
-              width="200px"
-              height="200px"
+              // width="200px"
+              // height="200px"
             />
             <p className="todaysTemp">34°</p>
           </div>
@@ -63,11 +62,11 @@ function TenDaysWeather() {
           <p className="timePara">04:30 PM</p>
           <div className="imageDetails">
             <img
-              src={myImg}
+              // src={myImg}
               alt=""
               className="image"
-              width="200px"
-              height="200px"
+              // width="200px"
+              // height="200px"
             />
             <p className="todaysTemp">34°</p>
           </div>
@@ -77,11 +76,11 @@ function TenDaysWeather() {
           <p className="timePara">04:30 PM</p>
           <div className="imageDetails">
             <img
-              src={myImg}
+              // src={myImg}
               alt=""
               className="image"
-              width="200px"
-              height="200px"
+              // width="200px"
+              // height="200px"
             />
             <p className="todaysTemp">34°</p>
           </div>
@@ -91,11 +90,11 @@ function TenDaysWeather() {
           <p className="timePara">04:30 PM</p>
           <div className="imageDetails">
             <img
-              src={myImg}
+              // src={myImg}
               alt=""
               className="image"
-              width="200px"
-              height="200px"
+              // width="200px"
+              // height="200px"
             />
             <p className="todaysTemp">34°</p>
           </div>
