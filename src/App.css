@@ -4,6 +4,15 @@
     box-sizing: border-box;
 }
 
-body, button {
+body {
     font-family: 'Poppins', sans-serif;
+    background-color: #f2fbff;
+}
+
+button, input {
+    font-family: 'Poppins', sans-serif;
+}
+
+.highlight {
+    color: #6c6cff;
 }

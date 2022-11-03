@@ -1,41 +1,24 @@
-
-.container{
-    /* background-image: linear-gradient(to right, red , yellow); */
-    /* object-fit: full; */
-     height: 100%;
-    width: 100%;
-    min-height: 100%;
-    min-width: 100%;
-    background-color: rgb(69, 69, 211);
-    
-    
-}
-
 .imageDetails {
   /* display: flex; */
   justify-content: center;
   margin: 32px;
 }
+
 .todaysTemp {
   font-size: 35px;
   padding: 32px;
 }
+
 .detailsPara{
     text-align: center;
     margin-top: 42px;
     font-size: 32px;
 }
-.todaysWeatherDetails{
- /* display: flex; */
- /* gap: 20px; */
- margin: 30px;
-}
+
 .todaysWeatherCards{
   /* display: flex; */
 }
+
 .todaysWeathers{
   display: flex;
-
 }
-
-

@@ -46,12 +46,11 @@ function TodaysWeather() {
               {formatToLocalTime(weather.dt, weather.timeZone)}
             </p>
           </div>
-           <h3>Hourly Forecast</h3>
-          {weather.hourly.map((item) => (
-            <div className="todaysWeathers">
-             
 
-              <div className="todaysWeatherCards">
+          <h3>Hourly Forecast</h3>
+          <div className="todaysWeathers">
+            <div className="todaysWeatherCards">
+              {weather.hourly.map((item) => (
                 <div className="todaysWeatherDetails">
                   <p>{item.title}</p>
                   <img
@@ -63,34 +62,9 @@ function TodaysWeather() {
                   />
                   <p>{item.temp.toFixed()}°</p>
                 </div>
-                {/* <div className="todaysWeatherDetails">
-                <p> </p>
-                <TiWeatherPartlySunny />
-              </div>
-              <div className="todaysWeatherDetails">
-                <p>sun</p>
-                <TiWeatherPartlySunny />
-              </div>
-
-              <div className="todaysWeatherDetails">
-                <p>sun</p>
-                <TiWeatherPartlySunny />
-              </div>
-              <div className="todaysWeatherDetails">
-                <p>sun</p>
-                <TiWeatherPartlySunny />
-              </div>
-              <div className="todaysWeatherDetails">
-                <p>sun</p>
-                <TiWeatherPartlySunny />
-              </div>
-              <div className="todaysWeatherDetails">
-                <p>sun</p>
-                <TiWeatherPartlySunny />
-              </div> */}
-              </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       )}
     </>

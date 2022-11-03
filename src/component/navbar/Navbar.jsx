@@ -21,16 +21,16 @@ const Navbar = () => {
       <div className="navLinks">
         <NavLink to="/" className=""></NavLink>
         <NavLink to="/todaysWeather" className="todaysWeather">
-          Show Todays Weather
+          Todays Weather
         </NavLink>
         <NavLink to="/tenDaysWeather" className="tenDaysWeather">
-          Show Ten Days weather
+          Ten Days weather
         </NavLink>
         <NavLink to="/humidity" className="humidity">
-          Show Humidity
+          Humidity
         </NavLink>
         <NavLink to="/sunriseSunset" className="sunriseSunset">
-          Show Sunrise Sunset
+          Sunrise Sunset
         </NavLink>
       </div>
 
