@@ -31,24 +31,27 @@ function TodaysWeather() {
       <Navbar />
       {weather && (
         <div className="container">
+          <p className="detailsPara"><span className="detailsSpan">{weather.details}</span></p>
           <div className="tempDetails">
-            <p className="detailsPara">{weather.details}</p>
-          </div>
-          <div className="imageDetails">
-            <img
-              src={iconUrlFromCode(weather.icon)}
-              alt=""
-              className="image"
-              width="200px"
-              height="200px"
-            />
-            <p className="todaysTemp">
-              {formatToLocalTime(weather.dt, weather.timeZone)}
-            </p>
+            
+
+            <div className="imageDetails">
+              <img
+                src={iconUrlFromCode(weather.icon)}
+                alt=""
+                className="image"
+                width="200px"
+                height="200px"
+              /></div>
+              <p className="todaysTemp">
+                {formatToLocalTime(weather.dt, weather.timeZone)}
+              </p>
+            
           </div>
 
-          <h3>Hourly Forecast</h3>
+          
           <div className="todaysWeathers">
+          <h3>Hourly Forecast</h3>
             <div className="todaysWeatherCards">
               {weather.hourly.map((item) => (
                 <div className="todaysWeatherDetails">

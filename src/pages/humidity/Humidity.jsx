@@ -28,21 +28,21 @@ function Humidity() {
       <Navbar />
       {weather && (
         <div className="mainHumidity">
-          <div className="temperature">
-            <TbTemperature size={25} className="realFell" />
-            Realfell: 
-            <span className="font-medium ml-1">{weather.feels_like.toFixed()}°</span>
+          <div className="tempDetailsHumidity">
+            <TbTemperature size={68} className="tempDetailHumidityIcon" />
+            Realfell:
+            <span className="">{weather.feels_like.toFixed()}°</span>
           </div>
-          <div className="humidity">
-            <WiHumidity size={18} className="mr-1" />
+          <div className="tempDetailsHumidity">
+            <WiHumidity size={68} className="tempDetailHumidityIcon" />
             Humidity:
-            <span className="font-medium ml-1">{weather.humidity}%</span>
+            <span className="">{weather.humidity}%</span>
           </div>
 
-          <div className="wind">
-            <TbWindmill size={18} className="mr-1" />
+          <div className="tempDetailsHumidity">
+            <TbWindmill size={68} className="tempDetailHumidityIcon" />
             Wind:
-            <span className="font-medium ml-1">{weather.speed}km/h</span>
+            <span className="">{weather.speed}km/h</span>
           </div>
         </div>
       )}

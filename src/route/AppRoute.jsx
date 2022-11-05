@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route ,useNavigate} from "react-router-dom";
 // import Navbar from "../component/navbar/Navbar";
 import Home from "../pages/home/Home";
 import Humidity from "../pages/humidity/Humidity";

@@ -11,7 +11,14 @@ import {
 import { useState } from "react";
 import { useEffect } from "react";
 import { BsSearch } from "react-icons/bs";
-// import { toast } from "react-toastify";
+import londonImg from './images/london.jpg'
+import japnImg from './images/japan.jpg'
+import sydneyImg from './images/sydney.jpg'
+import torontoImg from './images/toronto.jpg'
+import parisImg from './images/france.jpg'
+
+// import {londonImg} from "./images/london.jpg";
+// import sydney from "../../../src/pages/home/images/london.jpg"
 
 const Home = () => {
   const [query, setQuery] = useState({ q: "nepal" });
@@ -51,28 +58,29 @@ const Home = () => {
   const cities = [
     {
       id: 1,
+      imagePath:londonImg,
       title: "London",
-      imagePath: "",
+      
     },
     {
       id: 2,
       title: "Sydney",
-      imagePath: "",
+      imagePath: sydneyImg,
     },
     {
       id: 3,
       title: "Tokyo",
-      imagePath: "",
+      imagePath: japnImg,
     },
     {
       id: 4,
       title: "Toronto",
-      imagePath: "",
+      imagePath:torontoImg ,
     },
     {
       id: 5,
       title: "Paris",
-      imagePath: "",
+      imagePath:parisImg,
     },
   ];
 
@@ -109,9 +117,11 @@ const Home = () => {
             <h3 className="sectionHeading">Weather <span className="highlight">Forecast</span></h3>
             <div className="weatherStats">
               {cities.map((city) => (
-                <div className="city" key={city.id} onClick={() => setQuery({ q: city.title })}>
+                <div className="city" key={city.id} onClick={() => setQuery({q:city.imagePath, q:city.title})}>
                   <div className="cityImage">
-                    <img src="city.jpg" alt={city.title} />
+                  
+                    <img src={city.imagePath} alt={city.imagePath} width="50px" height="50px"/>
+                    
                   </div>
 
                   <span>{city.title}</span>

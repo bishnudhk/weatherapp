@@ -5,7 +5,10 @@ import { GiSunrise, GiSunset } from "react-icons/gi";
 import { BiUpArrowAlt } from "react-icons/bi";
 import { BsArrowDownShort } from "react-icons/bs";
 import { useState, useEffect } from "react";
-import { formatToLocalTime, getFormattedWeatherData } from "../../services/weatherServices";
+import {
+  formatToLocalTime,
+  getFormattedWeatherData,
+} from "../../services/weatherServices";
 
 function SunriseSet() {
   const [weather, setWeather] = useState(null);
@@ -27,31 +30,47 @@ function SunriseSet() {
     <>
       <Navbar />
       {weather && (
-        <div className="sunriseSets">
-          <GiSunrise />
-          <p className="font-light">
-            Rise: <span className="sunrise">{formatToLocalTime(weather.sunrise,weather.timezone,'hh:mm a')}</span>
-          </p>
-          <p className="font-light">|</p>
+        <div className="sunriseSetContainer">
+          <div className="riseSetDetails">
+            <GiSunrise size={68}  className="iconRise"/>
+            <p className="risePara">
+              Rise:{" "}
+              <span className="sunrise">
+                {formatToLocalTime(
+                  weather.sunrise,
+                  weather.timezone,
+                  "hh:mm a"
+                )}
+              </span>
+            </p>
+          </div>
+          {/* <p className="font-light">|</p> */}
+          <div className="riseSetDetails">
+            <GiSunset size={68} className="iconSet"/>
+            <p className="setPara">
+              Set:{" "}
+              <span className="sunSet">
+                {formatToLocalTime(weather.sunset, weather.timezone, "hh:mm a")}
+              </span>
+            </p>
+          </div>
+          {/* <p className="font-light">|</p> */}
+          <div className="riseSetDetails">
+            <BiUpArrowAlt size={68} className="iconHigh"/>
+            <p className="high">
+              High:
+              <span className="">{weather.temp_max.toFixed()}°</span>
+            </p>
+          </div>
+          {/* <p className="font-light">|</p> */}
+          <div className="riseSetDetails">
+            <BsArrowDownShort size={68} className="icon"/>
 
-          <GiSunset />
-          <p className="font-light">
-            Set: <span className="sunSet">{formatToLocalTime(weather.sunset,weather.timezone,'hh:mm a')}</span>
-          </p>
-          <p className="font-light">|</p>
-
-          <BiUpArrowAlt />
-          <p className="high">
-            High:
-            <span className="">{weather.temp_max.toFixed()}°</span>
-          </p>
-          <p className="font-light">|</p>
-          <BsArrowDownShort />
-
-          <p className="low">
-            Low:
-            <span className="lowTemp">{weather.temp_min.toFixed()}°</span>
-          </p>
+            <p className="low">
+              Low:
+              <span className="lowTemp">{weather.temp_min.toFixed()}°</span>
+            </p>
+          </div>
         </div>
       )}
     </>
