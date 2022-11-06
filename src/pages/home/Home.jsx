@@ -1,5 +1,4 @@
 import React from "react";
-import { TiWeatherPartlySunny } from "react-icons/ti";
 import { IoLocationOutline } from "react-icons/io5";
 import "./home.css";
 import Navbar from "../../component/navbar/Navbar";
@@ -11,14 +10,11 @@ import {
 import { useState } from "react";
 import { useEffect } from "react";
 import { BsSearch } from "react-icons/bs";
-import londonImg from './images/london.jpg'
-import japnImg from './images/japan.jpg'
-import sydneyImg from './images/sydney.jpg'
-import torontoImg from './images/toronto.jpg'
-import parisImg from './images/france.jpg'
-
-// import {londonImg} from "./images/london.jpg";
-// import sydney from "../../../src/pages/home/images/london.jpg"
+import londonImg from "./images/london.jpg";
+import japnImg from "./images/japan.jpg";
+import sydneyImg from "./images/sydney.jpg";
+import torontoImg from "./images/toronto.jpg";
+import parisImg from "./images/france.jpg";
 
 const Home = () => {
   const [query, setQuery] = useState({ q: "nepal" });
@@ -30,12 +26,16 @@ const Home = () => {
     const fetchWeather = async () => {
       await getFormattedWeatherData({ ...query, units }).then((data) => {
         setWeather(data);
-        console.log(data);
       });
     };
 
     fetchWeather();
   }, [query, units]); //every time we changes new data
+
+  const handleSearchClick = () => {
+    
+    if (city !== "") setQuery({ q: city });
+  };
 
   const handleLocationClick = () => {
     if (navigator.geolocation) {
@@ -58,9 +58,8 @@ const Home = () => {
   const cities = [
     {
       id: 1,
-      imagePath:londonImg,
+      imagePath: londonImg,
       title: "London",
-      
     },
     {
       id: 2,
@@ -75,12 +74,12 @@ const Home = () => {
     {
       id: 4,
       title: "Toronto",
-      imagePath:torontoImg ,
+      imagePath: torontoImg,
     },
     {
       id: 5,
       title: "Paris",
-      imagePath:parisImg,
+      imagePath: parisImg,
     },
   ];
 
@@ -92,36 +91,39 @@ const Home = () => {
         <div className="section-left">
           <div className="search">
             <div className="searchBox">
-              <BsSearch />
+              <BsSearch onClick={handleSearchClick} />
 
               <input
-                type="text"
+                type="search"
                 placeholder="Search..."
-                // onChange={e => setQuery(e.target.value)}
-                // value={query}
-                // onKeyPress={search}
+                onChange={(e) => setCity(e.currentTarget.value)}
               />
             </div>
 
-            <span className="button" onClick={handleLocationClick}> 
-              <IoLocationOutline
-                size={25}
-                className="location"
-              />
+            <span className="button" onClick={handleLocationClick}>
+              <IoLocationOutline size={25} className="location" />
               Local Weather
             </span>
-
           </div>
 
           <div className="cities">
-            <h3 className="sectionHeading">Weather <span className="highlight">Forecast</span></h3>
+            <h3 className="sectionHeading">
+              Weather <span className="highlight">Forecast</span>
+            </h3>
             <div className="weatherStats">
               {cities.map((city) => (
-                <div className="city" key={city.id} onClick={() => setQuery({q:city.imagePath, q:city.title})}>
+                <div
+                  className="city"
+                  key={city.id}
+                  onClick={() => setQuery({ q: city.imagePath, q:city.title })}
+                >
                   <div className="cityImage">
-                  
-                    <img src={city.imagePath} alt={city.imagePath} width="50px" height="50px"/>
-                    
+                    <img
+                      src={city.imagePath}
+                      alt={city.imagePath}
+                      width="50px"
+                      height="50px"
+                    />
                   </div>
 
                   <span>{city.title}</span>
@@ -132,7 +134,7 @@ const Home = () => {
         </div>
 
         <div className="section-right">
-          {!weather && 'Loading...'}
+          {!weather && "Loading..."}
 
           {weather && (
             <section className="todayWeather">
@@ -160,7 +162,9 @@ const Home = () => {
                 </div>
               </div>
 
-              <h3 className="sectionHeading">Daily <span className="highlight">ForeCast</span></h3>
+              <h3 className="sectionHeading">
+                Daily <span className="highlight">ForeCast</span>
+              </h3>
               <div className="todaysWeathers">
                 <div className="todaysWeatherCards">
                   {weather.daily.map((item) => (
