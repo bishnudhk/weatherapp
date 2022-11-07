@@ -26,6 +26,7 @@ const Home = () => {
     const fetchWeather = async () => {
       await getFormattedWeatherData({ ...query, units }).then((data) => {
         setWeather(data);
+        console.log(data);
       });
     };
 
@@ -167,7 +168,7 @@ const Home = () => {
               </h3>
               <div className="todaysWeathers">
                 <div className="todaysWeatherCards">
-                  {weather.daily.map((item) => (
+                  {weather.daily.slice(1,6).map((item) => (
                     <div className="todaysWeatherDetails">
                       <p>{item.title}</p>
                       <img

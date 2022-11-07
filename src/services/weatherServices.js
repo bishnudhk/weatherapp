@@ -1,6 +1,6 @@
 // const API_KEY = "fc22bc6ec538314b693449a172bff67e";
 import { DateTime } from "luxon";
-const API_KEY = "e69e3d614cdf38b6358080b7b44bb253";
+const API_KEY = "fc22bc6ec538314b693449a172bff67e";
 const BASE_URL = "https://api.openweathermap.org/data/2.5";
 // const BASE_URL = "https://api.openweathermap.org/data/2.5/";
 
@@ -45,7 +45,7 @@ const formatCurrentWeather = (data) => {
 };
 
 const formatForecastWeather = (data) => {
-  let { timezone, daily, hourly } = data;
+  let { timezone, daily, hourly} = data;
   // this is daily timeZone
   daily = daily.slice(1, 6).map((d) => {
     return {
@@ -61,6 +61,13 @@ const formatForecastWeather = (data) => {
       temp: d.temp,
       icon: d.weather[0].icon,
     };
+    // fiveDay = fiveDay.slice(1,6).map((d) => {
+    //   return {
+    //     title: formatToLocalTime(d.dt, timezone, "mm/dd/yyyy"),
+    //     temp: d.temp,
+    //     icon: d.weather[0].icon,
+    //   };
+    // })
   });
 
   return { timezone, daily, hourly };

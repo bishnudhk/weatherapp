@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Link, useNavigate} from "react-router-dom";
 import './userLogin.css';
+import { loginUser } from "../../utils/https";
 
 const Login = () => {
   const initialValues = { email: "", password: "" };
@@ -15,12 +16,26 @@ const Login = () => {
     // console.log(formValues);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
+    // const formData = {
+    //   email,password
+    // };
+    // try{
+    //   await fetch (`${process.env.REACT_APP_BASE_URL}/login`,{
+    //     method:'POST',
+    //     body:JSON.stringify(formData),
+    //     headers:{"Content-Type":"application.json"}
+    //   })
+    // }catch(error){
+    // console.log(error);
+    // }
+    // const res = await http.loginUser(values);
     e.preventDefault();
     setFormErrors(validatae(formValues));
     setIsSubmit(true);
     
     navigation({ pathname: "/" });
+ 
   };
 
   useEffect(() => {

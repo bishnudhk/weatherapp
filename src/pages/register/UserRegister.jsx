@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./UserRegister.css";
+import * as createUser  from "../../utils/https";
 
 const Register = () => {
   const initialValues = { email: "", password: "" };
@@ -10,12 +11,14 @@ const Register = () => {
   const [isSubmit, setIsSubmit] = useState(false);
 
   const handleChanage = (e) => {
+   
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
     // console.log(formValues);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
+    // const res = await http.createUser(values);
     e.preventDefault();
     setFormErrors(validatae(formValues));
     setIsSubmit(true);
