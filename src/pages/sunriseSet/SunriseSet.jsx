@@ -12,8 +12,8 @@ import {
 
 function SunriseSet() {
   const [weather, setWeather] = useState(null);
-  const [query, setQuery] = useState({ q: "nepal" });
-  const [units, setUnits] = useState("metric");
+  const [query] = useState({ q: "nepal" });
+  const [units] = useState("metric");
 
   useEffect(() => {
     const fetchWeather = async () => {

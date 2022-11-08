@@ -1,13 +1,17 @@
 import React from "react";
 import { NavLink, useNavigate, Link } from "react-router-dom";
+import {GoogleLogout} from 'react-google-login';
 
 import "./navbar.css";
-
+const clientId = "953711835477-ddjbeo82uepehsq1iea6dskkolc5sh8a.apps.googleusercontent.com";
 const Navbar = () => {
+  const onSuccess = () =>{
+    console.log("logoutsuccessfully");
+  }
   const navigation = useNavigate();
 
   const handleLogout = () => {
-    localStorage.setItem("isLoggedIn", JSON.stringify(false));
+    localStorage.removeItem("loggedin");
     navigation({ pathname: "/login" });
   };
   return (
@@ -34,9 +38,16 @@ const Navbar = () => {
         </NavLink>
       </div>
 
-      <button className="logoutBtn" onClick={handleLogout}>
+      <button className="logoutBtn" 
+      onClick={handleLogout}>
         Logout
+
       </button>
+      <GoogleLogout 
+      clientId={clientId}
+      // buttonText={Logout}
+      onLogoutSuccess={onSuccess}
+      />
     </div>
   );
 };

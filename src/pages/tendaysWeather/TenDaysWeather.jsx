@@ -8,8 +8,8 @@ import { formatToLocalTime, getFormattedWeatherData, iconUrlFromCode } from "../
 const formatFiveWeather = () => {
 
   const [weather, setWeather] = useState(null);
-  const [query, setQuery] = useState({ q:"country" });
-  const [units, setUnits] = useState("metric");
+  const [query] = useState({ q:"country" });
+  const [units] = useState("metric");
 
   useEffect(() => {
     const fetchWeather = async () => {

@@ -18,7 +18,7 @@ import parisImg from "./images/france.jpg";
 
 const Home = () => {
   const [query, setQuery] = useState({ q: "nepal" });
-  const [units, setUnits] = useState("metric");
+  const [units] = useState("metric");
   const [weather, setWeather] = useState(null);
   const [city, setCity] = useState("");
 
@@ -26,7 +26,7 @@ const Home = () => {
     const fetchWeather = async () => {
       await getFormattedWeatherData({ ...query, units }).then((data) => {
         setWeather(data);
-        console.log(data);
+        // console.log(data);
       });
     };
 
@@ -116,7 +116,7 @@ const Home = () => {
                 <div
                   className="city"
                   key={city.id}
-                  onClick={() => setQuery({ q: city.imagePath, q:city.title })}
+                  onClick={() => setQuery({q:city.imagePath, q:city.title })}
                 >
                   <div className="cityImage">
                     <img

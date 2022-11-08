@@ -5,16 +5,16 @@ import {
   getFormattedWeatherData,
   iconUrlFromCode,
 } from "../../services/weatherServices";
-// import getFormattedWeatherData from "../../services/weatherServices";
-import myImg from "./images/young-man.png";
+
+
 import "./todaysWeather.css";
 import { useState, useEffect } from "react";
-import { TiWeatherPartlySunny } from "react-icons/ti";
+// import { TiWeatherPartlySunny } from "react-icons/ti";
 
 function TodaysWeather() {
   const [weather, setWeather] = useState(null);
-  const [query, setQuery] = useState({ q: "nepal" });
-  const [units, setUnits] = useState("metric");
+  const [query] = useState({ q: "nepal" });
+  const [units] = useState("metric");
 
   useEffect(() => {
     const fetchWeather = async () => {
