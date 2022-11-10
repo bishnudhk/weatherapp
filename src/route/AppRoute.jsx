@@ -16,11 +16,11 @@ const AppRoutes = () => {
   const navigation = useNavigate();
   var isLoggedIn = localStorage.getItem("isLoggedIn");
   useEffect(() => {
-    if (isLoggedIn !== "true") {
-      navigation({ pathname: "/login" });
-    } else {
-      navigation({ pathname: "/" });
-    }
+    // if (isLoggedIn !== "true") {
+    //   navigation({ pathname: "/login" });
+    // } else {
+    //   navigation({ pathname: "/" });
+    // }
   }, []);
 
   return (

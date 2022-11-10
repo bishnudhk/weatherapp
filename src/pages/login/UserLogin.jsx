@@ -95,7 +95,7 @@ const Login = () => {
   // };
 
   const onSuccess = (res) =>{
-    console.log("Login success! Current user:",);
+    console.log("Login success! Current user:",res.profileObj);
     // navigation({ pathname: "/" });
   }
   const onFailure =(res) =>{
