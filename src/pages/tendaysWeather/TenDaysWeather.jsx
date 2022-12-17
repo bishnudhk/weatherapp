@@ -86,8 +86,7 @@ const formatFiveWeather = () => {
 {/* <div className="container"> */}
 {/* <h2>dfsal</h2> */}
   {
-    hits.map((curPost) => {  <Navbar />
-      
+    hits.map((curPost) => {
    return <p className="detailsPara">
          {curPost.temp}  </p>
     })
